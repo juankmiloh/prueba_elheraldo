@@ -33,7 +33,7 @@ if(isset($accessToken)){
     try {
         $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
         $fbUserProfile = $profileRequest->getGraphNode()->asArray();
-        // print("Datos usuario --> ".json_encode($fbUserProfile));
+        print("Datos usuario --> ".json_encode($fbUserProfile));
         // echo "IP Share: " . $_SERVER['HTTP_CLIENT_IP'] . "<br />";
         // echo $_SERVER['HTTP_FORWARDED_FOR'];
     } catch(FacebookResponseException $e) {
