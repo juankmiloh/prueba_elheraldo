@@ -23,15 +23,15 @@ require_once 'fbConfig.php';
 // $url = "http://facebook.com/logout.php?next=http://localhost/fb_login&access_token=".$_SESSION['facebook_access_token'];
 // print($url);
 session_destroy();
-if (isset($_SERVER['HTTP_COOKIE'])) {
-    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
-    foreach($cookies as $cookie) {
-        $parts = explode('=', $cookie);
-        $name = trim($parts[0]);
-        setcookie($name, '', time()-1000);
-        setcookie($name, '', time()-1000, '/');
-    }
-}
+// if (isset($_SERVER['HTTP_COOKIE'])) {
+//     $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+//     foreach($cookies as $cookie) {
+//         $parts = explode('=', $cookie);
+//         $name = trim($parts[0]);
+//         setcookie($name, '', time()-1000);
+//         setcookie($name, '', time()-1000, '/');
+//     }
+// }
 // Redireccionar a página de inicio
 header("Location:index.php");
 // header('Location: '.$url);
