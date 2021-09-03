@@ -72,7 +72,7 @@ if(isset($accessToken)){
     // $logoutURL = 'cerrar.php';
     
     // imprimir datos de usuario
-    if(!empty($userData)){
+    if(!empty($fbUserData)){
 
         $userInfo= 
         '<div class="col-md-offset-3 col-md-6">
