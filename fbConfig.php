@@ -17,7 +17,7 @@ use Facebook\Exceptions\FacebookSDKException;
 $appId         = '1024718441685073'; // Identificador de la Aplicación
 $appSecret     = 'bbf7f735dcda6a3dc96e29d49896d047'; // Clave secreta de la aplicación
 // $redirectURL   = 'http://localhost/prueba_elheraldo_juan/'; // Callback URL localhost
-$redirectURL   = 'http://40.69.184.80/prueba_elheraldo_juan/'; //Callback URL AZURE
+$redirectURL   = 'https://elheraldo.centralus.cloudapp.azure.com/prueba_elheraldo_juan/'; //Callback URL AZURE
 $fbPermissions = array('');  //Permisos opcionales
 
 $fb = new Facebook(array(

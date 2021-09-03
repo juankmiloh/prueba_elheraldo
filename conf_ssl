@@ -1,0 +1,8 @@
+<VirtualHost *:*>
+    DocumentRoot  /var/www/html
+    ServerName    elheraldo.centralus.cloudapp.azure.com
+    SSLEngine                on
+    SSLCertificateFile       /etc/ssl/certificate.crt
+    SSLCertificateKeyFile    /etc/ssl/private.key
+    SSLCertificateChainFile  /etc/ssl/ca_bundle.crt
+</VirtualHost>
