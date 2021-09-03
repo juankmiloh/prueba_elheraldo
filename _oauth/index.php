@@ -48,7 +48,7 @@ if(isset($accessToken)){
     }
     
     // Inicializar clase "user"
-    $user = new User();
+    // $user = new User();
     
     // datos de usuario que iran a  la base de datos
     $fbUserData = array(
