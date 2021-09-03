@@ -62,10 +62,10 @@ if(isset($accessToken)){
         'picture'       => $fbUserProfile['picture']['url'],
         'link'          => $fbUserProfile['link']
     );
-    $userData = $user->checkUser($fbUserData);
+    // $userData = $user->checkUser($fbUserData);
     
     // Poner datos de usuario en variables de Session
-    $_SESSION['userData'] = $userData;
+    // $_SESSION['userData'] = $userData;
     
     // Obtener el url para cerrar sesión
     $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'cerrar.php');
@@ -78,11 +78,11 @@ if(isset($accessToken)){
         '<div class="col-md-offset-3 col-md-6">
         <table class="table table-responsive" style="background-color:rgba(255, 255, 255, 0.3); border: 2px #a0bbe8 solid;">
             <h4 class="bg-primary text-center pad-basic">INFORMACIÓN DEL USUARIO</h4>
-            <tr><th>Miniatura de Perfil:</th><td><img src="'.$userData['picture'].'"></td></tr>
-            <tr><th>Nombre:</th><td>' . $userData['first_name'].' '.$userData['last_name'].'</td></tr>
-            <tr><th>Correo:</th><td>' . $userData['email'].'</td></tr>
-            <tr><th>Género:</th><td>' . $userData['gender'].'</td></tr>
-            <tr><th>Ubicación:</th><td>' . $userData['locale'].'</td></tr>
+            <tr><th>Miniatura de Perfil:</th><td><img src="'.$fbUserData['picture'].'"></td></tr>
+            <tr><th>Nombre:</th><td>' . $fbUserData['first_name'].' '.$fbUserData['last_name'].'</td></tr>
+            <tr><th>Correo:</th><td>' . $fbUserData['email'].'</td></tr>
+            <tr><th>Género:</th><td>' . $fbUserData['gender'].'</td></tr>
+            <tr><th>Ubicación:</th><td>' . $fbUserData['locale'].'</td></tr>
             <tr><th>Logueado con: </th><td> Facebook </td></tr>
             <tr><th>Cerrar Sesión de:</th><td><a class="btn btn-primary" href="'.$logoutURL.'"> Facebook</a></td></tr>
         </table>
