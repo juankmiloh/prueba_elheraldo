@@ -14,10 +14,14 @@ use Facebook\Exceptions\FacebookSDKException;
 /*
  * Configuración de Facebook SDK
  */
-$appId         = '535606693574703'; // Identificador de la Aplicación
-$appSecret     = 'a09dd3e86b39c9d76ca95a7595492cfe'; // Clave secreta de la aplicación
-// $redirectURL   = 'http://localhost/prueba_elheraldo_juan/'; // Callback URL localhost
+// $appId         = '1024718441685073'; // Identificador de la Aplicación localhost - (Juan's first app - Test1)
+// $appSecret     = 'bbf7f735dcda6a3dc96e29d49896d047'; // Clave secreta de la aplicación localhost
+// $redirectURL   = 'http://localhost/prueba_elheraldo_juan/_oauth/'; // Callback URL localhost
+
+$appId         = '535606693574703'; // Identificador de la Aplicación AZURE - (Juan's first app)
+$appSecret     = 'a09dd3e86b39c9d76ca95a7595492cfe'; // Clave secreta de la aplicación AZURE
 $redirectURL   = 'https://elheraldo.centralus.cloudapp.azure.com/prueba_elheraldo_juan/_oauth/'; //Callback URL AZURE
+
 $fbPermissions = array('');  //Permisos opcionales
 
 $fb = new Facebook(array(

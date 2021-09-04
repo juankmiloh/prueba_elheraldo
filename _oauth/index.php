@@ -68,8 +68,8 @@ if(isset($accessToken)){
     // $_SESSION['userData'] = $userData;
     
     // Obtener el url para cerrar sesión
-    $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'cerrar.php');
-    // $logoutURL = 'cerrar.php';
+    // $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'cerrar.php');
+    $logoutURL = 'cerrar.php';
     
     // imprimir datos de usuario
     if(!empty($fbUserData)){
