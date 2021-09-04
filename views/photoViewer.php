@@ -1,8 +1,10 @@
 <?php
     session_start();
+    ob_start(); //Linea para permitir enviar flujo de datos por url al redireccionar la pagina 
     $logoutURL = '../_oauth/cerrar.php';
     $userData = $_SESSION['userData'];
     print("Datos usuario --> ".$userData['first_name']);
+
 ?>
 
 <html lang="es">
