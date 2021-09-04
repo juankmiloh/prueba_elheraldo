@@ -123,11 +123,7 @@ if(isset($accessToken)){
                 </div>
                 <div class="col-sm-12 col-md-6 login">
                     <?php
-                        echo '
-                            <a href="'.htmlspecialchars($loginURL).'">
-                                <img src="../img/fblogin-btn.png" height="50">
-                            </a>
-                        ';
+                        echo '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fblogin-btn.png" height="50"></a>';
                     ?>
                 </div>
             </div>
