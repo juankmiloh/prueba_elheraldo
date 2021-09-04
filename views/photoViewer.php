@@ -1,10 +1,8 @@
 <?php
     session_start();
-    ob_start(); //Linea para permitir enviar flujo de datos por url al redireccionar la pagina 
     $logoutURL = '../_oauth/cerrar.php';
     $userData = $_SESSION['userData'];
-    print("Datos usuario --> ".$userData['first_name']);
-    $apellido = $userData['first_name']
+    print("Datos usuario --> ".json_encode($userData));
 ?>
 
 <html lang="es">
@@ -32,8 +30,8 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span style="color: white;"><?echo htmlspecialchars($userData['first_name']).' '.$apellido?></span>
-                            <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar" style="margin-left: 10%;">
+                            <span style="color: white;"><?echo $userData['first_name'].' '.$userData['last_name'];?></span>
+                            <img src="<?echo $userData['picture'];;?>" alt="Avatar" class="avatar" style="margin-left: 10%;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Subir fotos</a></li>
@@ -74,10 +72,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -96,10 +94,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -118,10 +116,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -140,10 +138,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -162,10 +160,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -184,10 +182,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -206,10 +204,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
@@ -228,10 +226,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar">
+                                <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name']?></h5>
+                                <h5 class="card-title"><?echo $userData['first_name'].' '.$userData['last_name'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
