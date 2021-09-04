@@ -30,7 +30,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?echo $userData['first_name'].' '.$userData['last_name'];?>
+                            
                             <?
                                 echo '<img src="'.$userData['picture'].'" alt="Avatar" class="avatar" style="margin-left: 10%;">';
                             ?>
