@@ -7,18 +7,18 @@ class User {
     private $userTbl    = 'users';
     
     function __construct() {
-        // if(!isset($this->db)){
-        //     // Conectar a la BD
-        //     $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, 3307);
-        //     if($conn->connect_error){
-        //         echo("Failed to connect with MySQL: " . $conn->connect_error);
-        //         // die("Failed to connect with MySQL: " . $conn->connect_error);
-        //     }else{
-        //         // echo("Conexión a la base de datos con éxito!");
-        //         $this->db = $conn;
-        //         // echo $this->db;
-        //     }
-        // }
+        if(!isset($this->db)){
+            // Conectar a la BD
+            $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, 3307);
+            if($conn->connect_error){
+                echo("Failed to connect with MySQL: " . $conn->connect_error);
+                // die("Failed to connect with MySQL: " . $conn->connect_error);
+            }else{
+                // echo("Conexión a la base de datos con éxito!");
+                $this->db = $conn;
+                // echo $this->db;
+            }
+        }
     }
 
     function probarConn(){
@@ -80,7 +80,7 @@ class User {
         return $userData;
     }
 }
-$user = new User();
-$userData = $user->getRealIP();
-echo $userData;
+// $user = new User();
+// $userData = $user->getRealIP();
+// echo $userData;
 ?>

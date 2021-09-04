@@ -33,8 +33,8 @@ if(isset($accessToken)){
     try {
         $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
         $fbUserProfile = $profileRequest->getGraphNode()->asArray();
-        print("Datos usuario --> ".json_encode($fbUserProfile));
-        // echo "IP Share: " . $_SERVER['HTTP_CLIENT_IP'] . "<br />";
+        // print("Datos usuario --> ".json_encode($fbUserProfile));
+        echo "IP Local: " . $_SERVER['SERVER_ADDR'] . "<br />";
         // echo $_SERVER['HTTP_FORWARDED_FOR'];
     } catch(FacebookResponseException $e) {
         echo 'Graph returned an error: ' . $e->getMessage();
@@ -96,7 +96,7 @@ if(isset($accessToken)){
 }else{
     // Obtener la liga de inicio de sesión
     $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
-    print($loginURL);
+    // print($loginURL);
     
     // imprimir botón de login
     $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="../img/fblogin-btn.png"></a></div>';
