@@ -20,6 +20,7 @@
     <script src="../controller/oauth.js"></script>
 </head>
 <body>
+    <?echo "IP Local: " . $_SERVER['SERVER_ADDR'];?>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark w-100" style="background: #0a244f !important;">
         <div class="row w-100">
             <div class="col-sm-6 col-md-10 logo-colombia" style="border: 0px solid red;">
