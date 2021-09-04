@@ -34,7 +34,7 @@ if(isset($accessToken)){
         $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
         $fbUserProfile = $profileRequest->getGraphNode()->asArray();
         // print("Datos usuario --> ".json_encode($fbUserProfile));
-        echo "IP Local: " . $_SERVER['SERVER_ADDR'] . "<br />";
+        echo "IP Local: " . $_SERVER['SERVER_ADDR'];
         // echo $_SERVER['HTTP_FORWARDED_FOR'];
     } catch(FacebookResponseException $e) {
         echo 'Graph returned an error: ' . $e->getMessage();
@@ -102,21 +102,66 @@ if(isset($accessToken)){
     $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="../img/fblogin-btn.png"></a></div>';
 }
 ?>
-<html>
+<html lang="en">
 <head>
 <title>Inicia Sesión con FB</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link href="css/estilos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../img/marketing.ico" type="image/vnd.microsoft.icon">
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/estilos.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../controller/oauth.js"></script>
 </head>
 <body>
-
     <header>
       <div class="alert alert-info">
       <h2>Registro y Login con Facebook SDK PHP</h2>
       </div>
     </header>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="../img/playa.jpg" width="200" height="500" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img src="../img/playa1.jpg" width="200" height="500" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img src="../img/playa2.jpg" width="200" height="500" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
     <!-- Mostrar información del perfil y botón de login -->
     <div><?php echo $output; echo $userInfo; ?></div>
 </body>
