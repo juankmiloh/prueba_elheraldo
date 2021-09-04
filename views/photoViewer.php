@@ -4,7 +4,7 @@
     $logoutURL = '../_oauth/cerrar.php';
     $userData = $_SESSION['userData'];
     print("Datos usuario --> ".$userData['first_name']);
-
+    ob_end_flush();
 ?>
 
 <html lang="es">
