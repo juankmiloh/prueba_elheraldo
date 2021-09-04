@@ -31,7 +31,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span style="color: white;"><?echo session_start(); $userData['first_name'].' '.$userData['last_name']?></span>
+                            <span style="color: white;"><?echo .htmlspecialchars($userData['first_name']).' '.$userData['last_name']?></span>
                             <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar" style="margin-left: 10%;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
