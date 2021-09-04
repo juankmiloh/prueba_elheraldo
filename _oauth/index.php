@@ -99,7 +99,7 @@ if(isset($accessToken)){
     print($loginURL);
     
     // imprimir botón de login
-    $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="img/fblogin-btn.png"></a></div>';
+    $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="../img/fblogin-btn.png"></a></div>';
 }
 ?>
 <html>

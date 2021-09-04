@@ -1,43 +1,27 @@
-
-body
-{
-
-background: url(../img/background.jpg);
+body {
+	background: url(../../img/background.jpg);
 }
 
-header 
-{	
-
+header {
 	margin-top: 4%;
 	margin-right: 2%;
 	margin-left: 2%;
 	text-align: center;
-
 }
 
-section 
-{
-
+section {
 	margin-right: 2%;
 	margin-left: 2%;
 }
 
-.pad-basic
-
-{
-padding:.5%; 
-	
+.pad-basic {
+	padding: 0.5%;
 }
 
-.no-btm
-{
-	margin-bottom:0%;
+.no-btm {
+	margin-bottom: 0%;
 }
 
-.btn-der
-{
+.btn-der {
 	text-align: right;
 }
-
-
-
