@@ -114,27 +114,21 @@ if(isset($accessToken)){
     <script src="../controller/oauth.js"></script>
 </head>
 <body>
-    <!-- <header style="padding-bottom: 5%;">
-      <div class="alert alert-info" style="margin-left: 15%; margin-right: 10%;">
-        <h2>Descubre a Barranquilla</h2>
-      </div>
-    </header> -->
-
     <nav class="navbar navbar-dark bg-dark w-100" style="position: absolute; z-index: 10; background: #0a244f !important;">
         <div class="container-fluid">
             <!-- <h2 style="color: white;">Descubre a Barranquilla</h2> -->
             <div class="row w-100" style="border: 0px solid yellow; padding-top: 0.5%; padding-bottom: 0.5%;">
-                <div class="col-6" style="border: 0px solid red; text-align: left; padding-left: 4%;">
+                <div class="col-sm-12 col-md-6 logo-colombia">
                     <img class="img-responsive" src="../img/logo-ct-es.webp" height="50">
                 </div>
-                <div class="col-6" style="border: 0px solid red; text-align: right; padding-right: 2%;">
+                <div class="col-sm-12 col-md-6 login">
                     <img class="img-responsive" src="../img/fblogin-btn.png" height="50">
                 </div>
             </div>
         </div>
     </nav>
 
-    <div style="border: 0px solid red;" class="h-100">
+    <div style="border: 0px solid red;" class="w-100 h-100">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
