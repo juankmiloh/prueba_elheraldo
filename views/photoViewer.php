@@ -34,7 +34,6 @@
                             <?
                                 echo '<img src="'.$userData['picture'].'" alt="Avatar" class="avatar" style="margin-left: 10%;">';
                             ?>
-                            <img src="<?echo $userData['picture'];?>" alt="Avatar" class="avatar" style="margin-left: 10%;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Subir fotos</a></li>
