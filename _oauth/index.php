@@ -48,7 +48,7 @@ if(isset($accessToken)){
     }
     
     // Inicializar clase "user"
-    // $user = new User();
+    $user = new User();
     
     // datos de usuario que iran a  la base de datos
     $fbUserData = array(
@@ -62,33 +62,31 @@ if(isset($accessToken)){
         'picture'       => $fbUserProfile['picture']['url'],
         'link'          => $fbUserProfile['link']
     );
-    // $userData = $user->checkUser($fbUserData);
+    $userData = $user->checkUser($fbUserData);
     
     // Poner datos de usuario en variables de Session
-    // $_SESSION['userData'] = $userData;
+    $_SESSION['userData'] = $userData;
     
     // Obtener el url para cerrar sesión
     // $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'cerrar.php');
     $logoutURL = 'cerrar.php';
     
     // imprimir datos de usuario
-    if(!empty($fbUserData)){
+    if(!empty($_SESSION['userData'])){
 
         $userInfo= 
         '<div class="col-md-offset-3 col-md-6">
         <table class="table table-responsive" style="background-color:rgba(255, 255, 255, 0.3); border: 2px #a0bbe8 solid;">
             <h4 class="bg-primary text-center pad-basic">INFORMACIÓN DEL USUARIO</h4>
-            <tr><th>Miniatura de Perfil:</th><td><img src="'.$fbUserData['picture'].'"></td></tr>
-            <tr><th>Nombre:</th><td>' . $fbUserData['first_name'].' '.$fbUserData['last_name'].'</td></tr>
-            <tr><th>Correo:</th><td>' . $fbUserData['email'].'</td></tr>
-            <tr><th>Género:</th><td>' . $fbUserData['gender'].'</td></tr>
-            <tr><th>Ubicación:</th><td>' . $fbUserData['locale'].'</td></tr>
+            <tr><th>Miniatura de Perfil:</th><td><img src="'.$userData['picture'].'"></td></tr>
+            <tr><th>Nombre:</th><td>' . $userData['first_name'].' '.$userData['last_name'].'</td></tr>
+            <tr><th>Correo:</th><td>' . $userData['email'].'</td></tr>
+            <tr><th>Género:</th><td>' . $userData['gender'].'</td></tr>
+            <tr><th>Ubicación:</th><td>' . $userData['locale'].'</td></tr>
             <tr><th>Logueado con: </th><td> Facebook </td></tr>
             <tr><th>Cerrar Sesión de:</th><td><a class="btn btn-primary" href="'.$logoutURL.'"> Facebook</a></td></tr>
         </table>
         </div>';
-
-
     }else{
         $output = '<h3 style="color:red">Ocurrió algún problema, por favor intenta nuevamente.</h3>';
     }
@@ -96,13 +94,12 @@ if(isset($accessToken)){
 }else{
     // Obtener la liga de inicio de sesión
     $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
-    // print($loginURL);
     
     // imprimir botón de login
     $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="../img/fblogin-btn.png"></a></div>';
 }
 ?>
-<html lang="en">
+<html lang="es">
 <head>
 <title>Inicia Sesión con FB</title>
     <meta charset="utf-8">
@@ -117,52 +114,68 @@ if(isset($accessToken)){
     <script src="../controller/oauth.js"></script>
 </head>
 <body>
-    <header>
-      <div class="alert alert-info">
-      <h2>Registro y Login con Facebook SDK PHP</h2>
+    <!-- <header style="padding-bottom: 5%;">
+      <div class="alert alert-info" style="margin-left: 15%; margin-right: 10%;">
+        <h2>Descubre a Barranquilla</h2>
       </div>
-    </header>
+    </header> -->
 
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="../img/playa.jpg" width="200" height="500" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="../img/playa1.jpg" width="200" height="500" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="../img/playa2.jpg" width="200" height="500" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
-            </div>
+    <nav class="navbar navbar-dark bg-dark w-100" style="position: absolute; z-index: 10; background: #0a244f !important;">
+        <div class="container-fluid">
+            <!-- <h2 style="color: white;">Descubre a Barranquilla</h2> -->
+            <div class="row w-100" style="border: 0px solid yellow; padding-top: 0.5%; padding-bottom: 0.5%;">
+                <div class="col-6" style="border: 0px solid red; text-align: left; padding-left: 4%;">
+                    <img class="img-responsive" src="../img/logo-ct-es.webp" height="50">
+                </div>
+                <div class="col-6" style="border: 0px solid red; text-align: right; padding-right: 2%;">
+                    <img class="img-responsive" src="../img/fblogin-btn.png" height="50">
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+    </nav>
+
+    <div style="border: 0px solid red;" class="h-100">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="../img/quilla8.jpg" class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Descubre a Barranquilla</h1>
+                    <h5>Participa en el concurso</h5>
+                </div>
+                </div>
+                <div class="carousel-item">
+                <img src="../img/quilla5.jpg" class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Descubre a Barranquilla</h1>
+                    <h5>Participa en el concurso</h5>
+                </div>
+                </div>
+                <div class="carousel-item">
+                <img src="../img/quilla3.jpg" class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Descubre a Barranquilla</h1>
+                    <h5>Participa en el concurso</h5>
+                </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
 
     <!-- Mostrar información del perfil y botón de login -->
-    <div><?php echo $output; echo $userInfo; ?></div>
+    <!-- <div><?php echo $output; echo $userInfo; ?></div> -->
 </body>
 </html>
