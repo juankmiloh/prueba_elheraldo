@@ -4,6 +4,7 @@
     $logoutURL = '../_oauth/cerrar.php';
     $userData = $_SESSION['userData'];
     print("Datos usuario --> ".$userData['first_name']);
+    $apellido = $userData['first_name']
 ?>
 
 <html lang="es">
@@ -31,7 +32,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span style="color: white;"><?echo .htmlspecialchars($userData['first_name']).' '.$userData['last_name']?></span>
+                            <span style="color: white;"><?echo htmlspecialchars($userData['first_name']).' '.$apellido?></span>
                             <img src="<?echo $userData['picture']?>" alt="Avatar" class="avatar" style="margin-left: 10%;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
