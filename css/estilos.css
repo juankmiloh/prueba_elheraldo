@@ -35,5 +35,6 @@ body {
 	.login {
 		border: 0px solid red;
 		text-align: center;
+		padding-bottom: 1%;
 	}
 }

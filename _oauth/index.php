@@ -34,7 +34,7 @@ if(isset($accessToken)){
         $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
         $fbUserProfile = $profileRequest->getGraphNode()->asArray();
         // print("Datos usuario --> ".json_encode($fbUserProfile));
-        echo "IP Local: " . $_SERVER['SERVER_ADDR'];
+        // echo "IP Local: " . $_SERVER['SERVER_ADDR'];
         // echo $_SERVER['HTTP_FORWARDED_FOR'];
     } catch(FacebookResponseException $e) {
         echo 'Graph returned an error: ' . $e->getMessage();
@@ -101,7 +101,7 @@ if(isset($accessToken)){
 ?>
 <html lang="es">
 <head>
-<title>Inicia Sesión con FB</title>
+<title>Descubre a Barranquilla</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <link rel="shortcut icon" href="../img/marketing.ico" type="image/vnd.microsoft.icon">
@@ -122,7 +122,13 @@ if(isset($accessToken)){
                     <img class="img-responsive" src="../img/logo-ct-es.webp" height="50">
                 </div>
                 <div class="col-sm-12 col-md-6 login">
-                    <img class="img-responsive" src="../img/fblogin-btn.png" height="50">
+                    <?php
+                        echo '
+                            <a href="'.htmlspecialchars($loginURL).'">
+                                <img src="../img/fblogin-btn.png" height="50">
+                            </a>
+                        ';
+                    ?>
                 </div>
             </div>
         </div>
@@ -170,6 +176,6 @@ if(isset($accessToken)){
     </div>
 
     <!-- Mostrar información del perfil y botón de login -->
-    <!-- <div><?php echo $output; echo $userInfo; ?></div> -->
+    <div><?php echo $userInfo; ?></div>
 </body>
 </html>
