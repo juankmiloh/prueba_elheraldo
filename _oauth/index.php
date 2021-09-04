@@ -26,7 +26,7 @@ if(isset($accessToken)){
     
     // Redirigir el usuario de nuevo a la misma página si url tiene "code" parámetro en la cadena de consulta
     if(isset($_GET['code'])){
-        header('Location: ./index.php');
+        header('Location: ../views/photoViewer.php');
     }
     
     // Obtener información sobre el perfil de usuario facebook
@@ -48,7 +48,7 @@ if(isset($accessToken)){
     }
     
     // Inicializar clase "user"
-    $user = new User();
+    // $user = new User();
     
     // datos de usuario que iran a  la base de datos
     $fbUserData = array(
@@ -62,34 +62,33 @@ if(isset($accessToken)){
         'picture'       => $fbUserProfile['picture']['url'],
         'link'          => $fbUserProfile['link']
     );
-    $userData = $user->checkUser($fbUserData);
+    // $userData = $user->checkUser($fbUserData);
     
     // Poner datos de usuario en variables de Session
-    $_SESSION['userData'] = $userData;
+    $_SESSION['userData'] = $fbUserData;
     
     // Obtener el url para cerrar sesión
     // $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'cerrar.php');
-    $logoutURL = 'cerrar.php';
     
     // imprimir datos de usuario
-    if(!empty($_SESSION['userData'])){
+    // if(!empty($_SESSION['userData'])){
 
-        $userInfo= 
-        '<div class="col-md-offset-3 col-md-6">
-        <table class="table table-responsive" style="background-color:rgba(255, 255, 255, 0.3); border: 2px #a0bbe8 solid;">
-            <h4 class="bg-primary text-center pad-basic">INFORMACIÓN DEL USUARIO</h4>
-            <tr><th>Miniatura de Perfil:</th><td><img src="'.$userData['picture'].'"></td></tr>
-            <tr><th>Nombre:</th><td>' . $userData['first_name'].' '.$userData['last_name'].'</td></tr>
-            <tr><th>Correo:</th><td>' . $userData['email'].'</td></tr>
-            <tr><th>Género:</th><td>' . $userData['gender'].'</td></tr>
-            <tr><th>Ubicación:</th><td>' . $userData['locale'].'</td></tr>
-            <tr><th>Logueado con: </th><td> Facebook </td></tr>
-            <tr><th>Cerrar Sesión de:</th><td><a class="btn btn-primary" href="'.$logoutURL.'"> Facebook</a></td></tr>
-        </table>
-        </div>';
-    }else{
-        $output = '<h3 style="color:red">Ocurrió algún problema, por favor intenta nuevamente.</h3>';
-    }
+    //     $userInfo= 
+    //     '<div class="col-md-offset-3 col-md-6">
+    //     <table class="table table-responsive" style="background-color:rgba(255, 255, 255, 0.3); border: 2px #a0bbe8 solid;">
+    //         <h4 class="bg-primary text-center pad-basic">INFORMACIÓN DEL USUARIO</h4>
+    //         <tr><th>Miniatura de Perfil:</th><td><img src="'.$userData['picture'].'"></td></tr>
+    //         <tr><th>Nombre:</th><td>' . $userData['first_name'].' '.$userData['last_name'].'</td></tr>
+    //         <tr><th>Correo:</th><td>' . $userData['email'].'</td></tr>
+    //         <tr><th>Género:</th><td>' . $userData['gender'].'</td></tr>
+    //         <tr><th>Ubicación:</th><td>' . $userData['locale'].'</td></tr>
+    //         <tr><th>Logueado con: </th><td> Facebook </td></tr>
+    //         <tr><th>Cerrar Sesión de:</th><td><a class="btn btn-primary" href="'.$logoutURL.'"> Facebook</a></td></tr>
+    //     </table>
+    //     </div>';
+    // }else{
+    //     $output = '<h3 style="color:red">Ocurrió algún problema, por favor intenta nuevamente.</h3>';
+    // }
     
 }else{
     // Obtener la liga de inicio de sesión
@@ -141,6 +140,9 @@ if(isset($accessToken)){
                 <div class="carousel-item active">
                 <img src="../img/quilla8.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
+                    <div class="w-100 h-100" style="border: 0px solid; text-align: center;">
+                        <img src="../img/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
+                    </div>
                     <h1>Descubre a Barranquilla</h1>
                     <h5>Participa en el concurso</h5>
                 </div>
@@ -148,6 +150,9 @@ if(isset($accessToken)){
                 <div class="carousel-item">
                 <img src="../img/quilla5.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
+                    <div class="w-100 h-100" style="border: 0px solid; text-align: center;">
+                        <img src="../img/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
+                    </div>
                     <h1>Descubre a Barranquilla</h1>
                     <h5>Participa en el concurso</h5>
                 </div>
@@ -155,6 +160,9 @@ if(isset($accessToken)){
                 <div class="carousel-item">
                 <img src="../img/quilla3.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
+                    <div class="w-100 h-100" style="border: 0px solid; text-align: center;">
+                        <img src="../img/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
+                    </div>
                     <h1>Descubre a Barranquilla</h1>
                     <h5>Participa en el concurso</h5>
                 </div>
