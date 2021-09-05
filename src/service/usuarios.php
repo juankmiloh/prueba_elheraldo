@@ -1,59 +1,15 @@
 <?php
+
+require_once '../util/bdConnection.php';
+
 class User {
-    private $dbHost     = "localhost";
-    private $dbUsername = "root";
-    private $dbPassword = "root";
-    private $dbName     = "n260m_20217865_itic";
-    private $userTbl    = 'users';
+    private $userTbl = 'users';
     
     function __construct() {
-        if(!isset($this->db)){
-            // Conectar a la BD
-            $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, 3307);
-            if($conn->connect_error){
-                echo("Failed to connect with MySQL: " . $conn->connect_error);
-                // die("Failed to connect with MySQL: " . $conn->connect_error);
-            }else{
-                // echo("Conexión a la base de datos con éxito!");
-                $this->db = $conn;
-                // echo $this->db;
-            }
-        }
+        echo "Se instancio la clase de Usuarios";
+        $con = new ConnectionBD();
+        $this->db = $con->getConnection();
     }
-
-    function probarConn(){
-        echo('Hola mundo!');
-        // return $this->db;
-    }    
-
-    function getRealIP(){
-
-        if (isset($_SERVER["HTTP_CLIENT_IP"])){
-
-            return $_SERVER["HTTP_CLIENT_IP"];
-
-        }elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])){
-
-            return $_SERVER["HTTP_X_FORWARDED_FOR"];
-
-        }elseif (isset($_SERVER["HTTP_X_FORWARDED"])){
-
-            return $_SERVER["HTTP_X_FORWARDED"];
-
-        }elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])){
-
-            return $_SERVER["HTTP_FORWARDED_FOR"];
-
-        }elseif (isset($_SERVER["HTTP_FORWARDED"])){
-
-            return $_SERVER["HTTP_FORWARDED"];
-
-        }else{
-
-            return $_SERVER["REMOTE_ADDR"];
-
-        }
-    }    
     
     function checkUser($userData = array()){
         if(!empty($userData)){
@@ -80,7 +36,4 @@ class User {
         return $userData;
     }
 }
-// $user = new User();
-// $userData = $user->getRealIP();
-// echo $userData;
 ?>
