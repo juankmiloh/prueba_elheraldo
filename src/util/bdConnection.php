@@ -1,9 +1,9 @@
 <?php
 class ConnectionBD {
-    // private $dbHost     = "localhost"; // Conexion localhost
-    // private $dbPort     = 3307; // Conexion localhost
-    private $dbHost     = "elheraldo.centralus.cloudapp.azure.com"; // Conexion AZURE
-    private $dbPort     = 3306; // Conexion localhost
+    private $dbHost     = "localhost"; // Conexion localhost
+    private $dbPort     = 3307; // Conexion localhost
+    // private $dbHost     = "elheraldo.centralus.cloudapp.azure.com"; // Conexion AZURE
+    // private $dbPort     = 3306; // Conexion AZURE
     private $dbUsername = "root";
     private $dbPassword = "root";
     private $dbName     = "elheraldo";
