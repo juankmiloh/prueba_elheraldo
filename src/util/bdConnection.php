@@ -3,7 +3,7 @@ class ConnectionBD {
     // private $dbHost     = "localhost"; // Conexion localhost
     private $dbHost     = "40.69.184.80"; // Conexion AZURE
     private $dbUsername = "root";
-    private $dbPassword = "123456";
+    private $dbPassword = "root";
     private $dbName     = "elheraldo";
     
     function __construct() {
