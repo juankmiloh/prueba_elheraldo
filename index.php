@@ -1,7 +1,7 @@
 <?php
 // Include FB config file && User class
-require_once 'fbConfig.php';
-require_once 'usuarios.php';
+require_once './src/oauth/fbConfig.php';
+require_once './src/oauth/usuarios.php';
 
 session_start();
 session_regenerate_id(true);
@@ -26,7 +26,7 @@ if(isset($accessToken)){
     
     // Redirigir el usuario de nuevo a la misma página si url tiene "code" parámetro en la cadena de consulta
     if(isset($_GET['code'])){
-        header('Location: ../views/photoViewer.php');
+        header('Location: ./src/views/photoViewer.php');
     }
     
     // Obtener información sobre el perfil de usuario facebook
@@ -95,7 +95,7 @@ if(isset($accessToken)){
     $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
     
     // imprimir botón de login
-    $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="../img/fblogin-btn.png"></a></div>';
+    $output = '<a href="'.htmlspecialchars($loginURL).'"><div class="col-md-6 col-md-offset-4"><img class="img-responsive" src="./src/assets/fblogin-btn.png"></a></div>';
 }
 ?>
 <html lang="es">
@@ -103,14 +103,14 @@ if(isset($accessToken)){
 <title>Descubre a Barranquilla</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="shortcut icon" href="../img/marketing.ico" type="image/vnd.microsoft.icon">
+    <link rel="shortcut icon" href="./src/assets/marketing.ico" type="image/vnd.microsoft.icon">
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/estilos.css" rel="stylesheet">
-    <script src="../js/jquery.js"></script>
+    <link href="./src/styles/bootstrap.min.css" rel="stylesheet">
+    <link href="./src/styles/estilos.css" rel="stylesheet">
+    <script src="./src/js/jquery.js"></script>
     <!-- Bootstrap JS -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../controller/oauth.js"></script>
+    <script src="./src/js/bootstrap.min.js"></script>
+    <script src="./src/controller/oauth.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark w-100" style="position: absolute; z-index: 10; background: #0a244f !important;">
@@ -118,11 +118,11 @@ if(isset($accessToken)){
             <!-- <h2 style="color: white;">Descubre a Barranquilla</h2> -->
             <div class="row w-100" style="border: 0px solid yellow; padding-top: 0.5%; padding-bottom: 0.5%;">
                 <div class="col-sm-12 col-md-6 logo-colombia">
-                    <img class="img-responsive" src="../img/logo-ct-es.webp" height="50">
+                    <img class="img-responsive" src="./src/assets/logo-ct-es.webp" height="50">
                 </div>
                 <div class="col-sm-12 col-md-6 login">
                     <?php
-                        echo '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fblogin-btn.png" height="50"></a>';
+                        echo '<a href="'.htmlspecialchars($loginURL).'"><img src="./src/assets/fblogin-btn.png" height="50"></a>';
                     ?>
                 </div>
             </div>
@@ -138,30 +138,30 @@ if(isset($accessToken)){
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="../img/quilla8.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="./src/assets/quilla8.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <div class="w-100 h-100" style="border: 0px solid; text-align: center;">
-                        <img src="../img/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
+                        <img src="./src/assets/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
                     </div>
                     <h1>Descubre a Barranquilla</h1>
                     <h5>Participa en el concurso</h5>
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../img/quilla5.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="./src/assets/quilla5.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <div class="w-100 h-100" style="border: 0px solid; text-align: center;">
-                        <img src="../img/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
+                        <img src="./src/assets/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
                     </div>
                     <h1>Descubre a Barranquilla</h1>
                     <h5>Participa en el concurso</h5>
                 </div>
                 </div>
                 <div class="carousel-item">
-                <img src="../img/quilla3.jpg" class="d-block w-100 h-100" alt="...">
+                <img src="./src/assets/quilla3.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <div class="w-100 h-100" style="border: 0px solid; text-align: center;">
-                        <img src="../img/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
+                        <img src="./src/assets/el-heraldo-logo.svg" class="w-50 h-50" alt="...">
                     </div>
                     <h1>Descubre a Barranquilla</h1>
                     <h5>Participa en el concurso</h5>

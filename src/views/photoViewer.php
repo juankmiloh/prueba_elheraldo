@@ -1,8 +1,7 @@
 <?php
     session_start();
-    $logoutURL = '../_oauth/cerrar.php';
+    $logoutURL = '../oauth/cerrar.php';
     $userData = $_SESSION['userData'];
-    print("Datos usuario --> ".json_encode($userData));
 ?>
 
 <html lang="es">
@@ -10,10 +9,10 @@
 <title>Descubre a Barranquilla</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="shortcut icon" href="../img/marketing.ico" type="image/vnd.microsoft.icon">
+    <link rel="shortcut icon" href="../assets/marketing.ico" type="image/vnd.microsoft.icon">
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/estilos.css" rel="stylesheet">
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles/estilos.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap JS -->
     <script src="../js/bootstrap.min.js"></script>
@@ -23,7 +22,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark w-100" style="background: #0a244f !important;">
         <div class="row w-100">
             <div class="col-sm-6 col-md-10 logo-colombia" style="border: 0px solid red;">
-                <img class="img-responsive" src="../img/logo-ct-es.webp" height="50">
+                <img class="img-responsive" src="../assets/logo-ct-es.webp" height="50">
             </div>
             <div class="col-sm-12 col-md-2 logout-md">
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -45,7 +44,7 @@
             </div>
             <div class="col-sm-6 col-md-6 logout-sm" style="border: 0px solid yellow;">
                 <?php
-                    echo '<a href="'.htmlspecialchars($logoutURL).'"><img src="../img/close.png" height="50"></a>';
+                    echo '<a href="'.htmlspecialchars($logoutURL).'"><img src="../assets/close.png" height="50"></a>';
                 ?>
             </div>
         </div>
@@ -68,7 +67,7 @@
         <div class="row container-photos">
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -90,7 +89,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -112,7 +111,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -134,7 +133,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -156,7 +155,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -178,7 +177,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -200,7 +199,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
@@ -222,7 +221,7 @@
             </div>
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../img/quilla3.jpg" class="card-img-top" alt="...">
+                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">

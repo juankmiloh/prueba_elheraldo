@@ -1,4 +1,4 @@
-<VirtualHost *:443>
+<VirtualHost *:*>
     DocumentRoot  /var/www/html
     ServerName    elheraldo.centralus.cloudapp.azure.com
     SSLEngine                on
