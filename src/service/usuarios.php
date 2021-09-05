@@ -14,8 +14,9 @@ class User {
             // Conectar a la BD
             $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, $this->dbPort);
             if($conn->connect_error){
-                die("Failed to connect with MySQL: " . $conn->connect_error);
+                echo("Failed to connect with MySQL: " . $conn->connect_error);
             }else{
+                echo("Conexión a la base de datos con éxito!");
                 $this->db = $conn;
             }
         }
