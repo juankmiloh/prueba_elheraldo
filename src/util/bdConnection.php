@@ -1,9 +1,10 @@
 <?php
 class ConnectionBD {
-    private $dbHost     = "localhost";
+    // private $dbHost     = "localhost"; // Conexion localhost
+    private $dbHost     = "40.69.184.80"; // Conexion AZURE
     private $dbUsername = "root";
-    private $dbPassword = "root";
-    private $dbName     = "n260m_20217865_itic";
+    private $dbPassword = "123456";
+    private $dbName     = "elheraldo";
     
     function __construct() {
         if(!isset($this->db)){
