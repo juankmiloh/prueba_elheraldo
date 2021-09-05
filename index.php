@@ -1,7 +1,7 @@
 <?php
 // Include FB config file && User class
 require_once './src/oauth/fbConfig.php';
-// require_once './src/service/usuarios.php';
+require_once './src/service/usuarios.php';
 
 session_start();
 session_regenerate_id(true);
