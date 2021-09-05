@@ -34,8 +34,6 @@ if(isset($accessToken)){
         $profileRequest = $fb->get('/me?fields=name,first_name,last_name,email,link,gender,locale,picture');
         $fbUserProfile = $profileRequest->getGraphNode()->asArray();
         // print("Datos usuario --> ".json_encode($fbUserProfile));
-        // echo "IP Local: " . $_SERVER['SERVER_ADDR'];
-        // echo $_SERVER['HTTP_FORWARDED_FOR'];
     } catch(FacebookResponseException $e) {
         echo 'Graph returned an error: ' . $e->getMessage();
         session_destroy();

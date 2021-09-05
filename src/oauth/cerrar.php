@@ -10,5 +10,6 @@ $url = "http://facebook.com/logout.php?next=https://elheraldo.centralus.cloudapp
 session_destroy();
 
 // Redireccionar a página de inicio
-header("Location: ../../index.php");
-// header('Location: '.$url);
+// header("Location: ../../index.php");
+header('Location: '.$url);
+?>

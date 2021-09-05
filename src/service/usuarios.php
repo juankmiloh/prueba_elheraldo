@@ -1,14 +1,21 @@
 <?php
-
-require_once '../util/bdConnection.php';
-
 class User {
-    private $userTbl = 'users';
+    private $dbHost     = "localhost";
+    private $dbUsername = "root";
+    private $dbPassword = "root";
+    private $dbName     = "n260m_20217865_itic";
+    private $userTbl    = 'users';
     
-    function __construct() {
-        echo "Se instancio la clase de Usuarios";
-        $con = new ConnectionBD();
-        $this->db = $con->getConnection();
+    function __construct(){
+        if(!isset($this->db)){
+            // Conectar a la BD
+            $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, 3307);
+            if($conn->connect_error){
+                die("Failed to connect with MySQL: " . $conn->connect_error);
+            }else{
+                $this->db = $conn;
+            }
+        }
     }
     
     function checkUser($userData = array()){
@@ -22,7 +29,7 @@ class User {
                 $update = $this->db->query($query);
             }else{
                 // Insertar información del usuario
-                $query = "INSERT INTO ".$this->userTbl." SET oauth_provider = '".$userData['oauth_provider']."', oauth_uid = '".$userData['oauth_uid']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', locale = '".$userData['locale']."', picture = '".$userData['picture']."', link = '".$userData['link']."', created = '".date("Y-m-d H:i:s")."', modified = '".date("Y-m-d H:i:s")."'";
+                $query = "INSERT INTO ".$this->userTbl." SET ip = '".$_SERVER['SERVER_ADDR']."', oauth_provider = '".$userData['oauth_provider']."', oauth_uid = '".$userData['oauth_uid']."', first_name = '".$userData['first_name']."', last_name = '".$userData['last_name']."', email = '".$userData['email']."', gender = '".$userData['gender']."', locale = '".$userData['locale']."', picture = '".$userData['picture']."', link = '".$userData['link']."', created = '".date("Y-m-d H:i:s")."', modified = '".date("Y-m-d H:i:s")."'";
                 $insert = $this->db->query($query);
             }
             
@@ -30,7 +37,6 @@ class User {
             $result = $this->db->query($prevQuery);
             $userData = $result->fetch_assoc();
         }
-        // print("Datos usuario --> ".json_encode($userData));
         
         // return
         return $userData;
