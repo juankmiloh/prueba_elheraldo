@@ -19,7 +19,6 @@ class ConnectionBD {
                 $this->db = $conn;
             }
         }
-        echo "Prueba de conexión!";
     }
 
     function getConnection() {
