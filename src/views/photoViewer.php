@@ -21,7 +21,7 @@
     <!-- Bootstrap JS -->
     <script src="../js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../controller/guardarVoto.js"></script>
+    <script src="../controller/controllerPhotoViewer.js"></script>
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark w-100" style="background: #0a244f !important;">
