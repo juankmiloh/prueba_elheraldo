@@ -65,15 +65,15 @@
         <div class="offcanvas-body" style="text-align: center;">
             <h5 style="padding-bottom: 4%;">Podrás cargar solo dos fotos</h5>    
             <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
-            <form action="./../service/uploadFile.php" method="post" enctype="multipart/form-data">
+            <!-- <form action="./../service/uploadFile.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3" style="padding-bottom: 2%;">
                     <input class="form-control form-control-sm" type="file" name="fileToUpload" id="fileToUpload">
                 </div>
                 <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
                 <button type="submit" class="btn btn-primary" name="submit">Subir foto</button>
-            </form>
-            <!-- <input id="sortpicture" type="file" name="sortpic" />
-            <button id="upload">Upload</button> -->
+            </form> -->
+            <input id="sortpicture" type="file" name="sortpic" />
+            <button id="upload">Upload</button>
         </div>
     </div>
 
