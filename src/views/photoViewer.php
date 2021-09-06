@@ -65,15 +65,14 @@
         <div class="offcanvas-body" style="text-align: center;">
             <h5 style="padding-bottom: 4%;">Podrás cargar solo dos fotos</h5>    
             <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
-            <!-- <form action="./../service/uploadFile.php" method="post" enctype="multipart/form-data">
-                <div class="mb-3" style="padding-bottom: 2%;">
-                    <input class="form-control form-control-sm" type="file" name="fileToUpload" id="fileToUpload">
-                </div>
-                <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
-                <button type="submit" class="btn btn-primary" name="submit">Subir foto</button>
-            </form> -->
-            <input id="sortpicture" type="file" name="sortpic" />
-            <button id="upload">Upload</button>
+
+            <div class="mb-3" style="padding-bottom: 2%;">
+                <input class="form-control form-control-sm" type="file" name="sortpic" id="sortpicture" accept="image/png,image/jpeg">
+            </div>
+            <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
+            <?php
+                echo '<a href="javascript:guardarImagen('.htmlspecialchars(json_encode($userData['oauth_uid'])).')" class="btn btn-primary">Subir foto</a>';
+            ?>
         </div>
     </div>
 
@@ -82,12 +81,9 @@
 
         <div class="row container-photos">
         <?php
-            require_once './../service/votar.php';
-            // Inicializar clase "votar"
-            $votar = new Votar();
             // Consulta que permite obtener las fotografias con su respectiva votacion
             $sql = "select f.*, (case when votos.cantidad is not null then votos.cantidad else 0 end) as cantidad from
-            (select u.oauth_uid as id, u.picture, concat(u.first_name, ' ',last_name) as nombre, f.idfoto, f.ruta from foto f, users u where f.oauth_uid = u.oauth_uid) f
+            (select u.oauth_uid as id, u.picture, concat(u.first_name, ' ',last_name) as nombre, f.idfoto, f.nombre as foto from foto f, users u where f.oauth_uid = u.oauth_uid) f
             left join
             (select v.idfoto, count(*) as cantidad from voto v, foto f where v.idfoto = f.idfoto group by v.idfoto) votos
             on f.idfoto=votos.idfoto
@@ -102,7 +98,7 @@
         ?>  
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="<?php echo $row['ruta'];?>" class="card-img-top" alt="..." height="220">
+                    <img src="<?php echo './../service/uploads/'.$row['foto'];?>" class="card-img-top" alt="..." height="220">
                     <div class="card-body" style="border-top: 1px solid #cfd8dc;">
                         <div class="row">
                             <div class="col-md-3">

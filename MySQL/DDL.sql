@@ -1,5 +1,8 @@
 use elheraldo;
 
+-- -----------------------------------------------------
+-- table `usuarios`
+-- -----------------------------------------------------
 create table if not exists `users` (
   `oauth_provider` enum('','facebook','google','twitter') not null,
   `oauth_uid` varchar(100) not null,
@@ -16,10 +19,13 @@ create table if not exists `users` (
   primary key (`oauth_uid`)
 );
 
+-- -----------------------------------------------------
+-- table `foto`
+-- -----------------------------------------------------
 create table if not exists `foto` (
-  `idfoto` varchar(100) not null,
+  `idfoto` int NOT NULL AUTO_INCREMENT,
   `oauth_uid` varchar(100) not null,
-  `ruta` longtext not null,
+  `nombre` longtext not null,
   primary key (`idfoto`),
   index `fk_foto_users_idx` (`oauth_uid` asc),
   constraint `fk_foto_users`
@@ -31,7 +37,7 @@ create table if not exists `foto` (
 -- -----------------------------------------------------
 create table if not exists `voto` (
   `idvoto` int NOT NULL AUTO_INCREMENT,
-  `idfoto` varchar(100) not null,
+  `idfoto` int not null,
   `id_usuario_voto` varchar(100) not null,
   primary key (`idvoto`),
   index `fk_voto_foto1_idx` (`idfoto` asc),
