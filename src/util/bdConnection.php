@@ -1,18 +1,30 @@
 <?php
-$mysqli = mysqli_init();
-if (!$mysqli) {
-  die("mysqli_init failed");
+class ConnectionBD {
+    // private $dbHost     = "localhost"; // Conexion localhost
+    // private $dbPort     = 3307; // Conexion localhost
+    private $dbHost     = "elheraldo.centralus.cloudapp.azure.com"; // Conexion AZURE
+    private $dbPort     = 3306; // Conexion AZURE
+    private $dbUsername = "root";
+    private $dbPassword = "root";
+    private $dbName     = "elheraldo";
+    
+    function __construct() {
+        if(!isset($this->db)){
+            // Conectar a la BD
+            $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, $this->dbPort);
+            if($conn->connect_error){
+                echo("Failed to connect with MySQL: " . $conn->connect_error);
+            }else{
+                echo("Conexión a la base de datos con éxito!");
+                $this->db = $conn;
+            }
+        }
+        echo "Prueba de conexión!";
+    }
+
+    function getConnection() {
+        return $this->db;
+    }
 }
-
-$mysqli -> ssl_set("client-key.pem", "client-cert.pem", "ca.pem", '', '');
-
-if (!$mysqli -> real_connect("elheraldo.centralus.cloudapp.azure.com","hakase","Hakase-labs123@","elheraldo",3306)) {
-  die("Connect Error: " . mysqli_connect_error());
-}
-
-// Some queries...
-
-echo "Conectado a la base de datos exitosamente por SSL!";
-
-$mysqli -> close();
+$con = new ConnectionBD();
 ?>
