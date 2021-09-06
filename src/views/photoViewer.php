@@ -104,6 +104,13 @@
             </div>
         <?php
             }
+            require_once './../service/votar.php';
+            echo "paso hasta aca!";
+            // Inicializar clase "usuarios"
+            $votar = new Votar();
+            echo "paso hasta aca!";
+            $data = $votar->checkUser();
+            echo $data;
         ?>
         </div>
     </div>
