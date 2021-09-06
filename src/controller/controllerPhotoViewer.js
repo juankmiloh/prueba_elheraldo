@@ -72,3 +72,39 @@ function guardarVoto(dataVoto) {
         }
     });
 }
+
+function eliminarFoto(dataFoto) {
+    console.log("eliminar foto --> ", dataFoto);
+    // var form_data = new FormData();                  
+    // form_data.append('idfoto', idfoto);
+    $.post('./../service/foto.php',{
+        data: dataFoto
+    },function(e){
+        resp = JSON.parse(e);
+        // console.log('Mensaje del servidor --> ', resp);
+        if (resp) { // Se actualiza la vista si el usuario registra voto
+            Swal.fire({
+                title: 'Foto eliminada con éxito!',
+                // text: e,
+                icon: 'success',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ok',
+                allowOutsideClick: false
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload();
+                }
+            });
+        } else {
+            Swal.fire({
+                position: 'top',
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Ocurrio un error al eliminar la foto',
+                allowOutsideClick: false
+            });
+        }
+    });
+}

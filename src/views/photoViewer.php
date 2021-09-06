@@ -22,6 +22,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../controller/controllerPhotoViewer.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark w-100" style="background: #0a244f !important;">
@@ -77,6 +78,8 @@
         </div>
     </div>
 
+    <!-- Contenedro para mostrar las imagenes del concurso -->
+
     <div class="container" style="padding-top: 3%; border: 0px solid red;">
         <!-- Content here -->
 
@@ -115,7 +118,20 @@
                         <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
                         <div class="text-center">
                             <?php
-                                echo '<a href="javascript:guardarVoto('.htmlspecialchars(json_encode($votoData)).')" class="btn btn-primary">Votar</a>';
+                                echo '<a href="javascript:guardarVoto('.htmlspecialchars(json_encode($votoData)).')" class="btn btn-primary" style="font-weight: 500;">Votar</a>';
+                            ?>
+                            <?php
+                                if ($userData['oauth_uid'] == $row['id']) {
+                                    $fotoData = array();
+                                    $fotoData[] = array(
+                                        'idfoto' => $row['idfoto'],
+                                        'nombre' => $row['foto']
+                                    );
+                                    echo '
+                                        <a href="javascript:eliminarFoto('.htmlspecialchars(json_encode($fotoData)).')" class="btn btn-danger" style="color: white; font-size: x-large;">
+                                            <i class="bi bi-trash"></i>
+                                        </a>';
+                                }
                             ?>
                         </div>
                     </div>
