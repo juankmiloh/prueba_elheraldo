@@ -109,7 +109,7 @@
                                 <img src="<?php echo $row['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $row['nombre'];?></h5>
+                                <h5 class="card-title" style="font-size: large;"><?php echo $row['nombre'];?></h5>
                             </div>
                         </div>
                         <div style="padding-bottom: 3%; text-align: center; font-weight: 600;">
