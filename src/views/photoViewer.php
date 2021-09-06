@@ -20,6 +20,7 @@
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap JS -->
     <script src="../js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../controller/guardarVoto.js"></script>
 </head>
 <body>
