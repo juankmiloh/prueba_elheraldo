@@ -15,7 +15,7 @@ class ConnectionBD {
             if($conn->connect_error){
                 echo("Failed to connect with MySQL: " . $conn->connect_error);
             }else{
-                echo("Conexión a la base de datos con éxito!");
+                // echo("Conexión a la base de datos con éxito!");
                 $this->db = $conn;
             }
         }
@@ -25,5 +25,5 @@ class ConnectionBD {
         return $this->db;
     }
 }
-$con = new ConnectionBD();
+// $con = new ConnectionBD();
 ?>

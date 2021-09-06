@@ -20,7 +20,7 @@
     <script src="../js/jquery.js"></script>
     <!-- Bootstrap JS -->
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../controller/oauth.js"></script>
+    <script src="../controller/guardarVoto.js"></script>
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark w-100" style="background: #0a244f !important;">
@@ -69,7 +69,10 @@
         <!-- Content here -->
 
         <div class="row container-photos">
-        <?php 
+        <?php
+            require_once './../service/votar.php';
+            // Inicializar clase "votar"
+            $votar = new Votar();
             // Consulta que permite obtener las fotografias con su respectiva votacion
             $sql = "select f.*, (case when votos.cantidad is not null then votos.cantidad else 0 end) as cantidad from
             (select u.oauth_uid as id, u.picture, concat(u.first_name, ' ',last_name) as nombre, f.idfoto, f.ruta from foto f, users u where f.oauth_uid = u.oauth_uid) f
@@ -79,6 +82,11 @@
             order by votos.cantidad desc";
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)) {
+                $votoData = array();
+                $votoData[] = array(
+                    'idfoto'          => $row['idfoto'],
+                    'id_usuario_voto' => $userData['oauth_uid']
+                );
         ?>  
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
@@ -97,20 +105,15 @@
                         </div>
                         <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
                         <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
+                            <?php
+                                echo '<a href="javascript:guardarVoto('.htmlspecialchars(json_encode($votoData)).')" class="btn btn-primary">Votar</a>';
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         <?php
             }
-            require_once './../service/votar.php';
-            echo "paso hasta aca!";
-            // Inicializar clase "usuarios"
-            $votar = new Votar();
-            echo "paso hasta aca!";
-            $data = $votar->checkUser();
-            echo $data;
         ?>
         </div>
     </div>
