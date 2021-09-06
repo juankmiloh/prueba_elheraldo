@@ -26,5 +26,5 @@ class ConnectionBD {
         return $this->db;
     }
 }
-$con = new ConnectionBD();
+// $con = new ConnectionBD();
 ?>
