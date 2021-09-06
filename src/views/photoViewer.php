@@ -55,14 +55,25 @@
         </div>
     </nav>
     
+    <!-- Menu lateral de carga de fotos -->
     
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Carga tus fotos al concurso</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            ...
+        <nav class="navbar navbar-dark bg-dark w-100" style="background-color: #0a244f !important; color: white;">
+            <h3 style="padding-top: 2%; padding-left: 5%;" id="offcanvasRightLabel">Carga tus fotos al concurso</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </nav>
+        <div class="offcanvas-body" style="text-align: center;">
+            <h5 style="padding-bottom: 4%;">Podrás cargar solo dos fotos</h5>    
+            <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
+            <!-- <form action="./../service/uploadFile.php" method="post" enctype="multipart/form-data">
+                <div class="mb-3" style="padding-bottom: 2%;">
+                    <input class="form-control form-control-sm" type="file" name="fileToUpload" id="fileToUpload">
+                </div>
+                <div style="border-top: 1px solid #cfd8dc; padding-bottom: 6%;"></div>
+                <button type="submit" class="btn btn-primary" name="submit">Subir foto</button>
+            </form> -->
+            <input id="sortpicture" type="file" name="sortpic" />
+            <button id="upload">Upload</button>
         </div>
     </div>
 
