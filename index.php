@@ -6,6 +6,10 @@ require_once './src/service/usuarios.php';
 session_start();
 session_regenerate_id(true);
 
+if(isset($_SESSION['userData'])){
+    header('Location: ./src/views/photoViewer.php');
+}
+
 if(isset($accessToken)){
     if(isset($_SESSION['facebook_access_token'])){
         $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);

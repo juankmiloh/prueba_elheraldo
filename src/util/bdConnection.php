@@ -1,29 +1,10 @@
 <?php
-class ConnectionBD {
-    // private $dbHost     = "localhost"; // Conexion localhost
-    // private $dbPort     = 3307; // Conexion localhost
-    private $dbHost     = "elheraldo.centralus.cloudapp.azure.com"; // Conexion AZURE
-    private $dbPort     = 3306; // Conexion AZURE
-    private $dbUsername = "root";
-    private $dbPassword = "root";
-    private $dbName     = "elheraldo";
-    
-    function __construct() {
-        if(!isset($this->db)){
-            // Conectar a la BD
-            $conn = new mysqli($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName, $this->dbPort);
-            if($conn->connect_error){
-                echo("Failed to connect with MySQL: " . $conn->connect_error);
-            }else{
-                // echo("Conexión a la base de datos con éxito!");
-                $this->db = $conn;
-            }
-        }
-    }
-
-    function getConnection() {
-        return $this->db;
-    }
+$con = mysqli_connect("elheraldo.centralus.cloudapp.azure.com", "root", "root", "elheraldo", "3306");
+// Check connection
+mysqli_query($con, "SET NAMES 'UTF8'");
+if (mysqli_connect_error()) {
+	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+} else {
+	// echo 'Conexión a la base de datos con éxito!';
 }
-// $con = new ConnectionBD();
 ?>

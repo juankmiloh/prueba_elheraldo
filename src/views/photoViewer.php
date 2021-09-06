@@ -1,7 +1,11 @@
 <?php
+    include('./../util/bdConnection.php');
     session_start();
     $logoutURL = '../oauth/cerrar.php';
     $userData = $_SESSION['userData'];
+    if(!isset($_SESSION['userData'])){
+        header('Location: ../../index.php');
+    }
 ?>
 
 <html lang="es">
@@ -65,20 +69,31 @@
         <!-- Content here -->
 
         <div class="row container-photos">
+        <?php 
+            // Consulta que permite obtener las fotografias con su respectiva votacion
+            $sql = "select f.*, (case when votos.cantidad is not null then votos.cantidad else 0 end) as cantidad from
+            (select u.oauth_uid as id, u.picture, concat(u.first_name, ' ',last_name) as nombre, f.idfoto, f.ruta from foto f, users u where f.oauth_uid = u.oauth_uid) f
+            left join
+            (select v.idfoto, count(*) as cantidad from voto v, foto f where v.idfoto = f.idfoto group by v.idfoto) votos
+            on f.idfoto=votos.idfoto
+            order by votos.cantidad desc";
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_array($result)) {
+        ?>  
             <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
                 <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <img src="<?php echo $row['ruta'];?>" class="card-img-top" alt="..." height="220">
+                    <div class="card-body" style="border-top: 1px solid #cfd8dc;">
                         <div class="row">
                             <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
+                                <img src="<?php echo $row['picture'];?>" alt="Avatar" class="avatar">
                             </div>
                             <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
+                                <h5 class="card-title"><?php echo $row['nombre'];?></h5>
                             </div>
                         </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
+                        <div style="padding-bottom: 3%; text-align: center; font-weight: 600;">
+                            <p class="card-text">Cantidad de votos: <?php echo $row['cantidad'];?></p>
                         </div>
                         <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
                         <div class="text-center">
@@ -87,160 +102,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-3" style="padding-bottom: 2.5%;">
-                <div class="card" style="width: 18rem;">
-                    <img src="../assets/quilla3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="col-md-9" style="padding-top: 4%;">
-                                <h5 class="card-title"><?php echo $userData['first_name'].' '.$userData['last_name'];?></h5>
-                            </div>
-                        </div>
-                        <div style="padding-bottom: 2.5%; text-align: center; font-weight: 600;">
-                            <p class="card-text">Cantidad de votos: 10</p>
-                        </div>
-                        <div style="border-top: 1px solid #cfd8dc; padding-bottom: 4%;"></div>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-primary">Votar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php
+            }
+        ?>
         </div>
     </div>
 </body>
