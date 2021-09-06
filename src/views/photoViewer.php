@@ -28,13 +28,13 @@
             <div class="col-sm-6 col-md-10 logo-colombia" style="border: 0px solid red;">
                 <img class="img-responsive" src="../assets/logo-ct-es.webp" height="50">
             </div>
-            <div class="col-sm-12 col-md-2 logout-md">
+            <div class="col-sm-12 col-md-2 logout-md" style="border: 0px solid red; padding: 0;">
                 <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span style="color: white;"><?php echo $userData['first_name'].' '.$userData['last_name'];?></span>
-                            <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar" style="margin-left: 10%;">
+                            <img src="<?php echo $userData['picture'];?>" alt="Avatar" class="avatar" style="margin-left: 3%;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Subir fotos</a></li>
