@@ -89,7 +89,6 @@ if(isset($accessToken)){
     <script src="./src/js/jquery.js"></script>
     <!-- Bootstrap JS -->
     <script src="./src/js/bootstrap.min.js"></script>
-    <script src="./src/controller/oauth.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark w-100" style="position: absolute; z-index: 10; background: #0a244f !important;">
