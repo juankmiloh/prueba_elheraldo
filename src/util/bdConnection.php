@@ -1,5 +1,6 @@
 <?php
-$con = mysqli_connect("elheraldo.centralus.cloudapp.azure.com", "root", "root", "elheraldo", "3306");
+$con = mysqli_connect("localhost", "root", "root", "elheraldo", "3307"); // localhost
+// $con = mysqli_connect("elheraldo.centralus.cloudapp.azure.com", "root", "root", "elheraldo", "3306"); // AZURE
 // Check connection
 mysqli_query($con, "SET NAMES 'UTF8'");
 if (mysqli_connect_error()) {
